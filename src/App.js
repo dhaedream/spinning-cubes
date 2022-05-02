@@ -38,6 +38,14 @@ function App() {
           shadow-camera-bottom={10}
         />
 
+        <group>
+          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
+            <planeBufferGeometry attach="geometry" args={[100, 100]} />
+            // to cast stadow
+            <meshStandardMaterial attach="material" color={"grey"} />
+          </mesh>
+        </group>
+
         <Box position={[0, 1, 0]} args={[3, 2, 1]} color="pink" />
         <Box position={[-2, 1, -5]} color="lime" />
         <Box position={[5, 1, -2]} color="lime" />
