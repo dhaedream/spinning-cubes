@@ -18,8 +18,12 @@ function App() {
   return (
     <>
       {/* no html in canvas  */}
+
       <Canvas camera={{ position: [-5, 2, 10], fov: 40 }}>
+        {/* equally light all in scene */}
         <ambientLight intensity={0.5} />
+        <Box />
+        <Box />
         <Box />
       </Canvas>
     </>
