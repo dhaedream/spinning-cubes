@@ -1,7 +1,11 @@
+import React, { useRef } from "react";
 import "./App.scss";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
+// import { Box } from "@react-three/drei";
 
 function App() {
+  const mesh = useRef(null);
+
   return (
     <>
       {/* no html in canvas  */}
@@ -10,6 +14,7 @@ function App() {
           <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
           <meshStandardMaterial attach="material" />
         </mesh>
+        {/* <Box /> */}
       </Canvas>
     </>
   );
