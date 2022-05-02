@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       {/* no html in canvas  */}
-      <Canvas colorManagment>
+      <Canvas camera={{ position: [-5, 2, 10], fov: 40 }}>
         <ambientLight intensity={0.5} />
         <Box />
       </Canvas>
