@@ -19,6 +19,7 @@ function App() {
     <>
       {/* no html in canvas  */}
       <Canvas>
+        <ambientLight intensity={0.5} />
         <Box />
       </Canvas>
     </>
