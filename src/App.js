@@ -1,14 +1,18 @@
 import React, { useRef, useState } from "react";
 //R3F
-import { Canvas, useFrame } from "react-three-fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 // Deai - R3F
-import { softShadows, MeshWobbleMaterial, OrbitControls } from "drei";
+import {
+  softShadows,
+  MeshWobbleMaterial,
+  OrbitControls,
+} from "@react-three/drei";
 //Components
 // import Header from "./components/header";
 // Styles
 import "./App.scss";
 // React Spring
-import { useSpring, a } from "react-spring/three";
+import { useSpring, a } from "@react-spring/three";
 
 // soft Shadows
 softShadows();
