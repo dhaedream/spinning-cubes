@@ -67,6 +67,7 @@ const App = () => {
       <Canvas
         colorManagement
         shadowMap
+        // test
         camera={{ position: [-5, 2, 10], fov: 60 }}
       >
         {/* This light makes things look pretty */}
