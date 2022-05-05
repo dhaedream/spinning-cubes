@@ -43,7 +43,7 @@ const SpinningMesh = ({ position, color, speed, args }) => {
         color={color}
         speed={speed}
         attach="material"
-        factor={0.6}
+        factor={0.9}
       />
     </a.mesh>
 
@@ -66,8 +66,7 @@ const App = () => {
       {/* Our Scene & Camera is already built into our canvas */}
       <Canvas
         colorManagement
-        shadows
-        // shadowMap
+        shadowMap
         // test
         camera={{ position: [-5, 2, 10], fov: 60 }}
       >
@@ -87,10 +86,23 @@ const App = () => {
           shadow-camera-bottom={-10}
         />
         {/* A light to help illumnate the spinning boxes */}
-        <pointLight position={[-10, 0, -20]} intensity={0.5} />
-        <pointLight position={[0, -10, 0]} intensity={1.5} />
+        <pointLight position={[-10, 0, -20]} intensity={2.5} color="red" />
+        <pointLight position={[0, -10, 0]} intensity={1.5} color="blue" />
         <group>
           {/* This mesh is the plane (The floor) */}
+          <mesh
+            rotation={[-Math.PI / 2, 0, 0]}
+            position={[0, -3, 0]}
+            receiveShadow
+          >
+            <planeBufferGeometry
+              attach="geometry"
+              args={[100, 100]}
+              // color="white"
+            />
+            <shadowMaterial attach="material" opacity={0.3} />
+          </mesh>
+
           <SpinningMesh
             position={[0, 1, 0]}
             color="lightblue"
@@ -100,14 +112,6 @@ const App = () => {
           <SpinningMesh position={[-2, 1, -5]} color="pink" speed={6} />
 
           <SpinningMesh position={[5, 1, -2]} color="pink" speed={6} />
-          <mesh
-            rotation={[-Math.PI / 2, 0, 0]}
-            position={[0, -3, 0]}
-            receiveShadow
-          >
-            <planeBufferGeometry attach="geometry" args={[100, 100]} />
-            <shadowMaterial attach="material" opacity={0.3} />
-          </mesh>
         </group>
 
         {/* Allows us to move the canvas around for different prespectives */}
