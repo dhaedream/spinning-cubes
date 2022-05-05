@@ -66,7 +66,8 @@ const App = () => {
       {/* Our Scene & Camera is already built into our canvas */}
       <Canvas
         colorManagement
-        shadowMap
+        shadows
+        // shadowMap
         // test
         camera={{ position: [-5, 2, 10], fov: 60 }}
       >
