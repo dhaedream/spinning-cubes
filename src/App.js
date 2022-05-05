@@ -6,6 +6,7 @@ import {
   softShadows,
   MeshWobbleMaterial,
   OrbitControls,
+  Plane,
 } from "@react-three/drei";
 //Components
 // import Header from "./components/header";
@@ -68,7 +69,7 @@ const App = () => {
         colorManagement
         shadowMap
         // test
-        camera={{ position: [-25, -10, 10], fov: 60 }}
+        camera={{ position: [-10, 2, 10], fov: 60 }}
       >
         {/* This light makes things look pretty */}
         <ambientLight intensity={0.3} />
@@ -90,7 +91,7 @@ const App = () => {
         <pointLight position={[0, -10, 0]} intensity={1.5} color="blue" />
         <group>
           {/* This mesh is the plane (The floor) */}
-          <mesh
+          {/* <mesh
             rotation={[-Math.PI / 2, 0, 0]}
             position={[0, -3, 0]}
             receiveShadow
@@ -101,7 +102,16 @@ const App = () => {
               // color="white"
             />
             <shadowMaterial attach="material" opacity={0.3} />
-          </mesh>
+          </mesh> */}
+
+          <Plane
+            receiveShadow
+            rotation={[-Math.PI / 2, 0, 0]}
+            position={[0, -1, 0]}
+            args={[1000, 1000]}
+          >
+            <meshStandardMaterial attach="material" color="grey" />
+          </Plane>
 
           <SpinningMesh
             position={[0, 1, 0]}
