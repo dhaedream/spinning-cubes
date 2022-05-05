@@ -6,7 +6,8 @@ import {
   softShadows,
   MeshWobbleMaterial,
   OrbitControls,
-  Plane,
+  // Plane,
+  ContactShadows,
 } from "@react-three/drei";
 //Components
 // import Header from "./components/header";
@@ -33,11 +34,12 @@ const SpinningMesh = ({ position, color, speed, args }) => {
   });
   return (
     <a.mesh
+      castShadow
+      receiveShadow
       position={position}
       ref={mesh}
       onClick={() => setExpand(!expand)}
       scale={props.scale}
-      castShadow
     >
       <boxBufferGeometry attach="geometry" args={args} />
       <MeshWobbleMaterial
@@ -68,7 +70,6 @@ const App = () => {
       <Canvas
         colorManagement
         shadowMap
-        // test
         camera={{ position: [-10, 2, 10], fov: 60 }}
       >
         {/* This light makes things look pretty */}
@@ -76,7 +77,7 @@ const App = () => {
         {/* Our main source of light, also casting our shadow */}
         <directionalLight
           castShadow
-          position={[0, 10, 0]}
+          position={[0, 1, 0]}
           intensity={1.5}
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
@@ -84,7 +85,7 @@ const App = () => {
           shadow-camera-left={-10}
           shadow-camera-right={10}
           shadow-camera-top={10}
-          shadow-camera-bottom={-10}
+          shadow-camera-bottom={-30}
         />
         {/* A light to help illumnate the spinning boxes */}
         <pointLight position={[-10, 0, -20]} intensity={2.5} color="red" />
@@ -104,14 +105,24 @@ const App = () => {
             <shadowMaterial attach="material" opacity={0.3} />
           </mesh> */}
 
-          <Plane
+          <ContactShadows
+            rotation={[Math.PI / 2, 0, 0]}
+            position={[0, -30, 0]}
+            opacity={0.6}
+            width={130}
+            height={130}
+            blur={0.5}
+            far={40}
+          />
+
+          {/* <Plane
             receiveShadow
             rotation={[-Math.PI / 2, 0, 0]}
             position={[0, -1, 0]}
             args={[1000, 1000]}
           >
             <meshStandardMaterial attach="material" color="grey" />
-          </Plane>
+          </Plane> */}
 
           <SpinningMesh
             position={[0, 1, 0]}
