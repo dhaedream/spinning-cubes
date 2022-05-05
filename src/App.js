@@ -68,7 +68,7 @@ const App = () => {
         colorManagement
         shadowMap
         // test
-        camera={{ position: [-5, 2, 10], fov: 60 }}
+        camera={{ position: [-25, -10, 10], fov: 60 }}
       >
         {/* This light makes things look pretty */}
         <ambientLight intensity={0.3} />
